@@ -1,13 +1,19 @@
 package com.dt5gen.plugins
 
+import com.dt5gen.*
 import com.dt5gen.data.model.User
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import com.dt5gen.authentication.JwtService
+import com.dt5gen.authentication.hash
 
-fun Application.configureRouting() {
+fun Application.configureRouting()   {
+
+    val jwtService = JwtService()
+    val hashFunction = { s: String -> hash(s) }
+
     routing {
         get("/notes") {
             call.respondText("Hello World!")
@@ -18,9 +24,9 @@ fun Application.configureRouting() {
             call.respondText("$id")
         }
 
-        get("/token"){
+        get("/token") {
             val email = call.request.queryParameters["email"]!!
-            val password = call.request.queryParameters["password"]
+            val password = call.request.queryParameters["password"]!!
             val username = call.request.queryParameters["username"]!!
 
             val user = User(email, hashFunction(password), username)
@@ -50,4 +56,5 @@ fun Application.configureRouting() {
 
 
     }
+
 }
