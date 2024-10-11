@@ -37,13 +37,10 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation:2.3.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
-
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
-
     implementation("org.postgresql:postgresql:$postgres_version")
-
     implementation("com.zaxxer:HikariCP:$hikari_version")
 
 
