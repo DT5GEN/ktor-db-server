@@ -26,6 +26,7 @@ repositories {
 }
 
 dependencies {
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-server-auth-jvm")
     implementation("io.ktor:ktor-server-auth-jwt-jvm")
@@ -40,6 +41,10 @@ dependencies {
 
     implementation("io.ktor:ktor-auth:1.6.8")
     implementation("io.ktor:ktor-auth-jwt:1.6.8")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0")
+    runtimeOnly("io.ktor:ktor-server-core:3.0.0")
+    implementation("io.ktor:ktor-server-resources:2.3.0")
+
 
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
